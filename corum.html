@@ -3,14 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>İstanbul Hava Durumu - WeatherTurkey</title>
+    <title>Çorum Hava Durumu - WeatherTurkey</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="leftbar">
-      <div class="logo">
-        <i class="fa fa-cloud" aria-hidden="true"></i> WeatherTurkey
-      </div>
+      <div class="logo">WeatherTurkey</div>
       <div class="menu">
         <div class="menu-title" style="font-size: 20px; color: #000">
           Şehirler
@@ -362,7 +360,8 @@
 
     <script src="script.js"></script>
     <script>
-      function getWeatherData(city, unit, hourlyorWeek) {
+      const city = 'Çorum'
+       function getWeatherData(city, unit, hourlyorWeek) {
         fetch(
           `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
           {
@@ -402,10 +401,7 @@
             alert('City not found in our database')
           })
       }
-      getWeatherData('istanbul', currentUnit, hourlyorWeek)
+      getWeatherData(city, currentUnit, hourlyorWeek)
     </script>
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"></script>
   </body>
 </html>

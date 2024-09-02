@@ -1,16 +1,53 @@
+#!/bin/bash
+
+# Şehir isimlerini tanımlayın
+sehirler=("Adana" "Adıyaman" "Afyonkarahisar" "Ağrı" "Aksaray" "Amasya" "Ankara" "Antalya" "Ardahan" "Artvin" "Aydın" "Balıkesir" "Bartın" "Batman" "Bayburt" "Bilecik" "Bingöl" "Bitlis" "Bolu" "Burdur" "Bursa" "Çanakkale" "Çankırı" "Çorum" "Denizli" "Diyarbakır" "Düzce" "Edirne" "Elazığ" "Erzincan" "Erzurum" "Eskişehir" "Gaziantep" "Giresun" "Gümüşhane" "Hakkari" "Hatay" "Iğdır" "Isparta" "İstanbul" "İzmir" "Kahramanmaraş" "Karabük" "Karaman" "Kars" "Kastamonu" "Kayseri" "Kırıkkale" "Kırklareli" "Kırşehir" "Kilis" "Kocaeli" "Konya" "Kütahya" "Malatya" "Manisa" "Mardin" "Mersin" "Muğla" "Muş" "Nevşehir" "Niğde" "Ordu" "Osmaniye" "Rize" "Sakarya" "Samsun" "Siirt" "Sinop" "Sivas" "Şanlıurfa" "Şırnak" "Tekirdağ" "Tokat" "Trabzon" "Tunceli" "Uşak" "Van" "Yalova" "Yozgat" "Zonguldak")
+
+# Türkçe karakterlerin karşılıklarını tanımlayın
+declare -A char_map=(
+    ["ç"]="c"
+    ["Ç"]="c"
+    ["ğ"]="g"
+    ["Ğ"]="g"
+    ["ı"]="i"
+    ["I"]="i"
+    ["ö"]="o"
+    ["Ö"]="o"
+    ["ş"]="s"
+    ["Ş"]="s"
+    ["ü"]="u"
+    ["Ü"]="u"
+)
+
+# Her şehir için HTML dosyası oluştur
+for sehir in "${sehirler[@]}"
+do
+    # Şehir adını küçük harfe çevirin
+    sehir_kucuk=$(echo "$sehir" | tr '[:upper:]' '[:lower:]')
+
+    # Türkçe karakterleri İngilizce karşılıklarına çevirin
+    seo_uyumlu_sehir="$sehir_kucuk"
+    for tr_char in "${!char_map[@]}"
+    do
+        seo_uyumlu_sehir=$(echo "$seo_uyumlu_sehir" | sed "s/$tr_char/${char_map[$tr_char]}/g")
+    done
+
+    # Boşlukları tire ile değiştirin
+    seo_uyumlu_sehir=$(echo "$seo_uyumlu_sehir" | tr ' ' '-')
+
+    # HTML dosyasını oluşturun
+    cat <<EOL > "${seo_uyumlu_sehir}.html"
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>İstanbul Hava Durumu - WeatherTurkey</title>
+    <title>${sehir} Hava Durumu - WeatherTurkey</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="leftbar">
-      <div class="logo">
-        <i class="fa fa-cloud" aria-hidden="true"></i> WeatherTurkey
-      </div>
+      <div class="logo">WeatherTurkey</div>
       <div class="menu">
         <div class="menu-title" style="font-size: 20px; color: #000">
           Şehirler
@@ -362,7 +399,8 @@
 
     <script src="script.js"></script>
     <script>
-      function getWeatherData(city, unit, hourlyorWeek) {
+      const city = '$sehir'
+       function getWeatherData(city, unit, hourlyorWeek) {
         fetch(
           `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
           {
@@ -402,10 +440,12 @@
             alert('City not found in our database')
           })
       }
-      getWeatherData('istanbul', currentUnit, hourlyorWeek)
+      getWeatherData(city, currentUnit, hourlyorWeek)
     </script>
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"></script>
   </body>
 </html>
+EOL
+
+    echo "$seo_uyumlu_sehir.html dosyası oluşturuldu."
+done
+
