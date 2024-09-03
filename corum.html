@@ -367,7 +367,9 @@
 
     <script src="script.js?v=1.0.0"></script>
     <script>
+
       const city = 'Çorum'
+            window.onload = function() {
        function getWeatherData(city, unit, hourlyorWeek) {
         fetch(
           `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
@@ -409,6 +411,7 @@
           })
       }
       getWeatherData(city, currentUnit, hourlyorWeek)
+    }
     </script>
   <script
       src="https://kit.fontawesome.com/64d58efce2.js"
