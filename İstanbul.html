@@ -401,7 +401,7 @@
             sunSet.innerText = covertTimeTo12HourFormat(today.sunset)
           })
           .catch((err) => {
-            alert('City not found in our database')
+            console.log('City not found in our database')
           })
       }
       getWeatherData(city, currentUnit, hourlyorWeek)

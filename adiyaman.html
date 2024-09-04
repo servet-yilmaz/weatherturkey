@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adıyaman Hava Durumu - WeatherTurkey</title>
-    <link rel="stylesheet" href="style.css?v=1.0.1" />
+    <link rel="stylesheet" href="style.css?v=1.0.2" />
      <meta name="google-adsense-account" content="ca-pub-3997378405656773">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3997378405656773"
      crossorigin="anonymous"></script>
@@ -365,7 +365,7 @@
       </div>
     </div>
 
-    <script src="script.js?v=1.0.1"></script>
+    <script src="script.js?v=1.0.2"></script>
     <script>
       const city = 'Adıyaman'
               window.onload = function() {
@@ -406,7 +406,7 @@
             sunSet.innerText = covertTimeTo12HourFormat(today.sunset)
           })
           .catch((err) => {
-            alert('City not found in our database')
+            console.log('City not found in our database')
           })
       }
       getWeatherData(city, currentUnit, hourlyorWeek)
