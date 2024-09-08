@@ -93,7 +93,7 @@ getPublicIp()
 // function to get weather data
 function getWeatherData(city, unit, hourlyorWeek) {
   fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/istanbul?unitGroup=metric&key=E4BZN5ARPDHZD62959EURNN8G&contentType=json`,
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/istanbul?unitGroup=metric&key=CA4LHJDEV8LNAHUR3AX62LRQC&contentType=json`,
     {
       method: 'GET',
       headers: {}
