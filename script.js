@@ -36,7 +36,9 @@ fetch('leftbar.html')
     document.getElementById('leftbar-container').innerHTML = data
   })
   .catch((error) => console.error('Error loading leftbar:', error))
-
+window.addEventListener('load', () => {
+  document.querySelector('#loading').remove()
+})
 // function to get date and time
 function getDateTime() {
   let now = new Date(),
