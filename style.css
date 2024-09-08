@@ -13,22 +13,18 @@
 body {
   display: flex;
   justify-content: center;
-  height: 100vh;
   background: var(--primary-color);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./images/cd.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   background-size: cover;
   background-position: center;
   transition: background-image 0.3s ease;
-  overflow-y: hidden;
 }
 img {
   width: 100%;
   max-width: 100px;
 }
 .wrapper {
-  height: 100%;
-  overflow: auto;
+    background: #f6f6f8;
 }
 .sidebar {
   width: 100%;
@@ -152,7 +148,6 @@ img {
 .main {
   width: 100%;
   padding: 20px 40px;
-  background-color: #f6f6f8;
   position: relative;
   padding-bottom: 90px;
 }
@@ -275,13 +270,7 @@ img {
   left: 50%;
   transform: translateX(-50%);
 }
-.leftbar {
-  min-width: 270px;
-  background-color: rgba(255, 255, 255, 0.815);
-  padding: 10px;
-  overflow-y: auto;
-  height: 100%;
-}
+#leftbar-container {min-width: 270px;background-color: rgba(255, 255, 255, 0.815);padding: 10px;/* height: 100%; */}
 
 .logo {
   font-size: x-large;
