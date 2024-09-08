@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-  --primary-color: #0066ff;
+  --primary-color: #0000ff;
 }
 
 * {
@@ -172,7 +172,7 @@ img {
   text-transform: capitalize;
 }
 .main nav .options button.active {
-  color: #0066ff;
+  color: var(--primary-color);
 }
 
 .main nav .units button {
