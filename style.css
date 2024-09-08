@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-  --primary-color: #0066ff;
+  --primary-color: #5598fd;
 }
 
 * {
@@ -172,7 +172,7 @@ img {
   text-transform: capitalize;
 }
 .main nav .options button.active {
-  color: var(--primary-color);
+  color: #0066ff;
 }
 
 .main nav .units button {
@@ -246,7 +246,7 @@ img {
   flex: auto;
 }
 .card2 .card-heading {
-  color: #000000;
+  color: #c2c2c2;
 }
 
 .card2 .content {
