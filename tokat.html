@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://weatherturkey.net/" />
     <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="style.css?v=1.1.3" />
+    <link rel="stylesheet" href="style.css?v=1.1.4" />
     <meta name="google-adsense-account" content="ca-pub-3997378405656773" />
     <script
       async
@@ -133,16 +133,16 @@
       </div>
     </div>
 
-    <script src="script.js?v=1.1.3"></script>
+    <script src="script.js?v=1.1.4"></script>
     <script>
       const city = 'Tokat'
       window.onload = function () {
         function getWeatherData(city, unit, hourlyorWeek) {
           fetch(
-            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=E4BZN5ARPDHZD62959EURNN8G&contentType=json`,
             {
               method: 'GET',
-              headers: {},
+              headers: {}
             }
           )
             .then((response) => response.json())
