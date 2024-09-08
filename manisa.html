@@ -4,24 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manisa Hava Durumu - WeatherTurkey</title>
-<meta name="description" content="Türkiye'deki tüm şehirler için güncel hava durumu tahminleri. Hava sıcaklığı, nem oranı, rüzgar hızı ve daha fazlasını öğrenin.">
-<meta name="keywords" content="hava durumu, İstanbul hava durumu, Türkiye hava durumu, hava tahmini, sıcaklık, yağmur, rüzgar">
-<meta name="robots" content="index, follow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Türkiye Hava Durumu - WeatherTurkey">
-<meta property="og:description" content="Türkiye'nin şehirlerindeki güncel hava durumu tahminlerini alın.">
-<meta property="og:url" content="https://weatherturkey.net/">
-<meta property="og:type" content="website">
+    <meta
+      name="description"
+      content="Türkiye'deki tüm şehirler için güncel hava durumu tahminleri. Hava sıcaklığı, nem oranı, rüzgar hızı ve daha fazlasını öğrenin." />
+    <meta
+      name="keywords"
+      content="hava durumu, İstanbul hava durumu, Türkiye hava durumu, hava tahmini, sıcaklık, yağmur, rüzgar" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Türkiye Hava Durumu - WeatherTurkey" />
+    <meta
+      property="og:description"
+      content="Türkiye'nin şehirlerindeki güncel hava durumu tahminlerini alın." />
+    <meta property="og:url" content="https://weatherturkey.net/" />
+    <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="style.css?v=1.0.4" />
-     <meta name="google-adsense-account" content="ca-pub-3997378405656773">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3997378405656773"
-     crossorigin="anonymous"></script>
-   <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css?v=1.0.5" />
+    <meta name="google-adsense-account" content="ca-pub-3997378405656773" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3997378405656773"
+      crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
- <body>
-<div id="leftbar-container"></div>
-  
+  <body>
+    <div id="leftbar-container"></div>
+
     <div class="wrapper">
       <div class="sidebar">
         <div id="leftbar-opener">
@@ -123,61 +131,65 @@
     <script src="script.js?v=1.0.4"></script>
     <script>
       const city = 'Manisa'
-              window.onload = function() {
-       function getWeatherData(city, unit, hourlyorWeek) {
-        fetch(
-          `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
-          {
-            method: 'GET',
-            headers: {}
-          }
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            let today = data.currentConditions
-            if (unit === 'c') {
-              temp.innerText = today.temp
-            } else {
-              temp.innerText = celciusToFahrenheit(today.temp)
+      window.onload = function () {
+        function getWeatherData(city, unit, hourlyorWeek) {
+          fetch(
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`,
+            {
+              method: 'GET',
+              headers: {},
             }
-            currentLocation.innerText = data.resolvedAddress
-            uvIndex.innerText = today.uvindex
-            windSpeed.innerText = today.windspeed
-            measureUvIndex(today.uvindex)
-            mainIcon.src = getIcon(today.icon)
-            changeBackground(today.icon)
-            humidity.innerText = today.humidity + '%'
-            updateHumidityStatus(today.humidity)
-            visibilty.innerText = today.visibility
-            updateVisibiltyStatus(today.visibility)
-            airQuality.innerText = today.winddir
-            updateAirQualityStatus(today.winddir)
-            if (hourlyorWeek === 'hourly') {
-              updateForecast(data.days[0].hours, unit, 'day')
-            } else {
-              updateForecast(data.days, unit, 'week')
-            }
-            sunRise.innerText = covertTimeTo12HourFormat(today.sunrise)
-            sunSet.innerText = covertTimeTo12HourFormat(today.sunset)
-          })
-          .catch((err) => {
-            console.log('City not found in our database')
-          })
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              let today = data.currentConditions
+              if (unit === 'c') {
+                temp.innerText = today.temp
+              } else {
+                temp.innerText = celciusToFahrenheit(today.temp)
+              }
+              currentLocation.innerText = data.resolvedAddress
+              uvIndex.innerText = today.uvindex
+              windSpeed.innerText = today.windspeed
+              measureUvIndex(today.uvindex)
+              mainIcon.src = getIcon(today.icon)
+              changeBackground(today.icon)
+              humidity.innerText = today.humidity + '%'
+              updateHumidityStatus(today.humidity)
+              visibilty.innerText = today.visibility
+              updateVisibiltyStatus(today.visibility)
+              airQuality.innerText = today.winddir
+              updateAirQualityStatus(today.winddir)
+              if (hourlyorWeek === 'hourly') {
+                updateForecast(data.days[0].hours, unit, 'day')
+              } else {
+                updateForecast(data.days, unit, 'week')
+              }
+              sunRise.innerText = covertTimeTo12HourFormat(today.sunrise)
+              sunSet.innerText = covertTimeTo12HourFormat(today.sunset)
+            })
+            .catch((err) => {
+              console.log('City not found in our database')
+            })
+        }
+        getWeatherData(city, currentUnit, hourlyorWeek)
       }
-      getWeatherData(city, currentUnit, hourlyorWeek)
-
-    }
     </script>
-  <script
+    <script
       src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"></script><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WCB7FCVJ0Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WCB7FCVJ0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-  gtag('config', 'G-WCB7FCVJ0Z');
-</script>
-</body>
+      gtag('config', 'G-WCB7FCVJ0Z')
+    </script>
+  </body>
 </html>
