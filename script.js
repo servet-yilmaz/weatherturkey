@@ -30,6 +30,13 @@ let hourlyorWeek = 'week'
 leftbarOpener.addEventListener('click', () => {
   document.querySelector('.leftbar').classList.toggle('show-leftbar')
 })
+  fetch('leftbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('leftbar-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading leftbar:', error));
+
 // function to get date and time
 function getDateTime() {
   let now = new Date(),
@@ -168,17 +175,17 @@ function updateForecast(data, unit, type) {
 // function to change weather icons
 function getIcon(condition) {
   if (condition === 'partly-cloudy-day') {
-    return 'https://i.ibb.co/PZQXH8V/27.png'
+    return 'https://weatherturkey.net/img/27.png'
   } else if (condition === 'partly-cloudy-night') {
-    return 'https://i.ibb.co/Kzkk59k/15.png'
+    return 'https://weatherturkey.net/img/15.png'
   } else if (condition === 'rain') {
-    return 'https://i.ibb.co/kBd2NTS/39.png'
+    return 'https://weatherturkey.net/img/39.png'
   } else if (condition === 'clear-day') {
-    return 'https://i.ibb.co/rb4rrJL/26.png'
+    return 'https://weatherturkey.net/img/26.png'
   } else if (condition === 'clear-night') {
-    return 'https://i.ibb.co/1nxNGHL/10.png'
+    return 'https://weatherturkey.net/img/10.png'
   } else {
-    return 'https://i.ibb.co/rb4rrJL/26.png'
+    return 'https://weatherturkey.net/img/26.png'
   }
 }
 
