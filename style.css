@@ -12,12 +12,13 @@
 }
 body {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--primary-color);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   background-size: cover;
   background-position: center;
   transition: background-image 0.3s ease;
+  overflow-x: hidden;
 }
 img {
   width: 100%;
@@ -273,7 +274,7 @@ img {
 #leftbar-container {
   min-width: 270px;
   background-color: rgba(255, 255, 255, 0.815);
-  padding: 10px; /* height: 100%; */
+  padding: 10px;
 }
 
 .logo {
@@ -340,7 +341,7 @@ li {
     cursor: pointer;
   }
   .show-leftbar {
-    min-width: 250px;
-    padding: 10px;
+    min-width: 80% !important;
+    padding: 10px !important;
   }
 }
