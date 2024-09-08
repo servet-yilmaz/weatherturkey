@@ -24,7 +24,7 @@ img {
   max-width: 100px;
 }
 .wrapper {
-    background: #f6f6f8;
+  background: #f6f6f8;
 }
 .sidebar {
   width: 100%;
@@ -270,7 +270,11 @@ img {
   left: 50%;
   transform: translateX(-50%);
 }
-#leftbar-container {min-width: 270px;background-color: rgba(255, 255, 255, 0.815);padding: 10px;/* height: 100%; */}
+#leftbar-container {
+  min-width: 270px;
+  background-color: rgba(255, 255, 255, 0.815);
+  padding: 10px; /* height: 100%; */
+}
 
 .logo {
   font-size: x-large;
@@ -289,18 +293,18 @@ a {
   display: none;
 }
 .menu {
-    margin-top: 130px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-left: 10px;
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 10px;
 }
 
 li {
-    list-style: none;
-    font-weight: bolder;
-    color: #495057;
-    margin-top: 10px;
+  list-style: none;
+  font-weight: bolder;
+  color: #495057;
+  margin-top: 10px;
 }
 
 /* width */
@@ -310,20 +314,20 @@ li {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 @media only screen and (max-width: 770px) {
-  .leftbar {
+  .leftbar-container {
     width: 0;
     overflow-x: hidden;
     min-width: 0;
@@ -340,9 +344,3 @@ li {
     padding: 10px;
   }
 }
-
-
-
-
-
-
