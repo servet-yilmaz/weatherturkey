@@ -310,7 +310,7 @@ function updateVisibiltyStatus(visibility) {
   } else if (visibility <= 2.16) {
     visibilityStatus.innerText = 'Hafif sis'
   } else if (visibility <= 5.4) {
-    visibilityStatus.innerText = 'Very Light Mist'
+    visibilityStatus.innerText = 'Çok Hafif Sis'
   } else if (visibility <= 10.8) {
     visibilityStatus.innerText = 'Çok Hafif Sis'
   } else {
@@ -331,7 +331,7 @@ function updateAirQualityStatus(airquality) {
   } else if (airquality <= 250) {
     airQualityStatus.innerText = 'Çok Sağlıksız😨'
   } else {
-    airQualityStatus.innerText = 'Hazardous😱'
+    airQualityStatus.innerText = 'Tehlikeli😱'
   }
 }
 getWeatherData('istanbul', currentUnit, hourlyorWeek)
