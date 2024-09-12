@@ -81,7 +81,6 @@ function getPublicIp() {
     .then((response) => response.json())
     .then((data) => {
       currentCity = data.city
-      getWeatherData(data.city, currentUnit, hourlyorWeek)
     })
     .catch((err) => {
       console.error(err)
@@ -336,16 +335,6 @@ function updateAirQualityStatus(airquality) {
 }
 getWeatherData('istanbul', currentUnit, hourlyorWeek)
 
-// function to handle search form
-searchForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  let location = search.value
-  if (location) {
-    currentCity = location
-    getWeatherData(location, currentUnit, hourlyorWeek)
-  }
-})
-
 // function to conver celcius to fahrenheit
 function celciusToFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(1)
@@ -439,7 +428,6 @@ function changeUnit(unit) {
       celciusBtn.classList.remove('active')
       fahrenheitBtn.classList.add('active')
     }
-    getWeatherData(currentCity, currentUnit, hourlyorWeek)
   }
 }
 
@@ -461,6 +449,5 @@ function changeTimeSpan(unit) {
       hourlyBtn.classList.remove('active')
       weekBtn.classList.add('active')
     }
-    getWeatherData(currentCity, currentUnit, hourlyorWeek)
   }
 }
